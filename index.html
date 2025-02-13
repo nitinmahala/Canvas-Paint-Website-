@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Drawing App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="toolbar">
+            <div class="tool-group">
+                <button class="tool active" data-tool="brush" title="Brush (B)">
+                    <i class="fas fa-paint-brush"></i>
+                </button>
+                <button class="tool" data-tool="eraser" title="Eraser (E)">
+                    <i class="fas fa-eraser"></i>
+                </button>
+                <button class="tool" data-tool="shape" data-shape="rectangle" title="Rectangle (R)">
+                    <i class="fas fa-square"></i>
+                </button>
+                <button class="tool" data-tool="shape" data-shape="circle" title="Circle (C)">
+                    <i class="fas fa-circle"></i>
+                </button>
+            </div>
+
+            <div class="tool-group">
+                <input type="color" id="color" class="color-picker">
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: #000000"></div>
+                    <div class="color-swatch" style="background: #ff0000"></div>
+                    <div class="color-swatch" style="background: #00ff00"></div>
+                    <div class="color-swatch" style="background: #0000ff"></div>
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <button id="undo" class="control" title="Undo (Ctrl+Z)">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button id="redo" class="control" title="Redo (Ctrl+Y)">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button id="clear" class="control danger" title="Clear Canvas (Del)">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button id="save" class="control success" title="Save Drawing (Ctrl+S)">
+                    <i class="fas fa-save"></i>
+                </button>
+            </div>
+
+            <div class="tool-group">
+                <div class="slider-container">
+                    <label for="size">Size: <span id="sizeValue">10</span>px</label>
+                    <input type="range" id="size" min="1" max="100" value="10">
+                </div>
+                <div class="slider-container">
+                    <label for="opacity">Opacity: <span id="opacityValue">100</span>%</label>
+                    <input type="range" id="opacity" min="1" max="100" value="100">
+                </div>
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <dialog id="saveDialog">
+        <form method="dialog">
+            <p>Save drawing as:</p>
+            <input type="text" id="filename" value="drawing" required>
+            <select id="fileFormat">
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+                <option value="webp">WebP</option>
+            </select>
+            <div class="dialog-buttons">
+                <button value="cancel">Cancel</button>
+                <button id="confirmSave" value="default">Save</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
