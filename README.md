@@ -1,1 +1,2 @@
-# Canvas-Paint-Website- paintercanvasnitin.netlify.app
+# Canvas-Paint-Website
+Live Demo - paintercanvasnitin.netlify.app
